@@ -13,7 +13,7 @@ jobs:
        id: regex-match
        with:
          text: ${{ github.event.context }}
-         regex: ".*main:binary.linux:.*"
+         regex: format({0}{1}{2}, '.*', '${GITHUB_REF#refs/*/}',':binary.linux:.*')
      - uses: actions-ecosystem/action-create-comment@v1
        if: ${{ steps.regex-match.outputs.match != '' }}
        with:
