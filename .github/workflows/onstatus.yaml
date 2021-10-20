@@ -11,7 +11,7 @@ jobs:
     steps:
      - name: calc_regex
        id: vars
-       run: echo ::set-output name=regex::format("{0}{1}{2}",".*",${GITHUB_REF#refs/*/},":binary.linux:.*")
+       run: echo ::set-output name=regex::".*${GITHUB_REF#refs/*/}:binary.linux:.*"
      - uses: actions-ecosystem/action-regex-match@v2
        id: regex-match
        with:
