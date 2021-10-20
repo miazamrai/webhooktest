@@ -12,6 +12,8 @@ jobs:
      - name: calc_regex
        id: vars
        run: echo ::set-output name=regex::".*${GITHUB_REF#refs/*/}:binary.linux:.*"
+     - name: print_regex
+       run: echo ${{ steps.vars.outputs.regex }}   
      - uses: actions-ecosystem/action-regex-match@v2
        id: regex-match
        with:
