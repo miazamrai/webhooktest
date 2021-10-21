@@ -12,8 +12,8 @@ jobs:
      - name: calc_regex
        id: vars
        run: echo ::set-output name=regex::".*${GITHUB_REF#refs/*/}:binary.linux:.*"
-     - name: print_regex
-       run: echo ${{ steps.vars.outputs.regex }}   
+     - name: print
+       run: echo ${{ github.event.branches }}
      - uses: actions-ecosystem/action-regex-match@v2
        id: regex-match
        with:
@@ -24,4 +24,5 @@ jobs:
        with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           body: |
-            Hello, @${{ github.actor }}!
+            Starting Provisioner Deployment
+          run: echo "Deploy provisioner here"       
