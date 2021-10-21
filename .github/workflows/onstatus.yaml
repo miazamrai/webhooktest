@@ -1,9 +1,8 @@
 name: deploy-provisioner
 
 on:
- status:
-  types: [success]
-
+ - status
+ 
 jobs:
   deploy-provisioner:
     runs-on: ubuntu-latest
