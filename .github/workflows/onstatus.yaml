@@ -2,7 +2,7 @@ name: deploy-provisioner
 
 on:
  status:
-    types: [success]
+  types: [success]
 
 jobs:
   deploy-provisioner:
